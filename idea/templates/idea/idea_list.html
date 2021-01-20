@@ -1,0 +1,28 @@
+{% extends 'idea/layout.html' %}
+
+{% block title %}
+<h1>IDEA LIST</h1>
+<p>나의 아이디어를 잊지말고 기록해보아요</p>
+{% endblock title %}
+
+
+{% block content %}
+{% for idea in idea_list %}
+<div style="display: inline-block; margin: 10px; ">
+    <img src="{{ idea.image.url }}" alt="">
+    <h1><a href="{% url "idea:idea_detail" idea.id %}"> {{ idea.title }}</a></h1>
+    <p>예상 개발 툴 : {{ idea.devtool.name }}</p>
+
+
+    <div>
+        아이디어 관심도 :
+        <input type="text" value="{{ idea.interest }}" id="inptext" onfocusout="onlyNumber();" />
+        <button class="up">UP</button>
+        <button class="down">DOWN</button>
+    </div>
+
+
+
+</div>
+{% endfor %}
+{% endblock content %}

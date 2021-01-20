@@ -1,0 +1,16 @@
+{% extends 'idea/layout.html' %}
+{% block content %}
+<div class="container">
+    <div class="col-sm-12">
+        <h1>DEVTOOL REGISTER</h1>
+        <p>개발툴 등록 페이지 입니다. 자신이 다룰 수 있는 개발툴을 등록해보세요.</p>
+        <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+            {% csrf_token %}
+            <table class="table table-bordered">
+                {{ form.as_table }}
+            </table>
+            <input type="submit" value="저장하기" class="btn btn-primary" />
+        </form>
+    </div>
+</div>
+{% endblock content %}

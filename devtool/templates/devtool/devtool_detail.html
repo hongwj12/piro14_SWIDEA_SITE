@@ -1,0 +1,33 @@
+{% extends 'devtool/layout.html' %}
+
+{% block title %}
+<h1>DEVTOOL DETAIL</h1>
+<p>개발툴 세부내용 페이지입니다. 자신이 다룰 수 있는 개발툴에 대한 상세내용을 확인해보아요.</p>
+{% endblock title %}
+
+{% block content %}
+<div style="text-align: left;">
+    <h1>{{ devtool.name }}</h1>
+    <h3>{{ devtool.kind }}</h3>
+    <h3>{{ devtool.desc }}</h3>
+    <hr>
+    <h3>만들 수 있는 SW 목록</h3>
+    {% for idea in ideas %}
+    <p><a href="{% url "idea:idea_detail" idea.id %}">{{ idea.title }}</a></p>
+    {% endfor %}
+    <div style="text-align: center; ">
+        <form action="{% url 'devtool:devtool_delete' devtool.pk %}" style="display: inline-block;" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="삭제">
+        </form>
+        <form action="{% url "devtool:devtool_list" %}" style="display: inline-block;" method="GET">
+            {% csrf_token %}
+            <input type="submit" value="목록">
+        </form>
+        <form action="{% url "devtool:devtool_edit"  devtool.pk %}" style="display: inline-block;" method="GET">
+            {% csrf_token %}
+            <input type="submit" value="수정">
+        </form>
+    </div>
+</div>
+{% endblock content %}

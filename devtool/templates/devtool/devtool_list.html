@@ -1,0 +1,16 @@
+{% extends 'devtool/layout.html' %}
+
+{% block title %}
+<h1>DEVTOOL LIST</h1>
+<p>개발툴 목록 페이지 입니다. 자신이 사용 가능한 개발툴의 목록을 확인해 보세요.</p>
+{% endblock title %}
+
+{% block content %}
+{% for devtool in devtool_list %}
+<div style="display: inline-block; margin: 10px; text-align: left;">
+    <h1><a href="{% url "devtool:devtool_detail" devtool.id %}">{{ devtool.name }}</a></h1>
+    <h3>{{ devtool.kind }}</h3>
+    <p>{{ devtool.desc }}</p>
+</div>
+{% endfor %}
+{% endblock content %}

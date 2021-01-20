@@ -1,0 +1,16 @@
+{% extends 'idea/layout.html' %}
+{% block content %}
+<div class="container">
+    <div class="col-sm-12">
+        <h1>IDEA REGISTER</h1>
+        <p>아이디어 등록 페이지 입니다. 당신의 아이디어를 잊지 말고 기록하세요</p>
+        <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+            {% csrf_token %}
+            <table class="table table-bordered">
+                {{ form.as_table }}
+            </table>
+            <input type="submit" value="저장하기" class="btn btn-primary" />
+        </form>
+    </div>
+</div>
+{% endblock content %}

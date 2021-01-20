@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <title>My SW Idea Management</title>
+    <script src="idea_list.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div style="overflow: hidden;">
+            <h1 style="float: left;"><a href="{% url "idea:idea_list" %}">My SW Idea Manage</a></h1>
+            <table style="float: right;">
+                <td><a href="{% url "idea:idea_new" %}">아이디어 등록</a></li>
+                <td><a href="{% url "idea:idea_list" %}">아이디어 관리</a></li>
+                <td><a href="{% url "devtool:devtool_new" %}">개발툴 등록</a></li>
+                <td><a href="{% url "devtool:devtool_list" %}">개발 툴 관리</a></li>
+            </table>
+        </div>
+    </nav>
+    <hr>
+    <div style="text-align: center;">
+        <div>
+            {% block title %}
+            {% endblock title %}
+        </div>
+        <div>
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+
+    <hr>
+    &copy;2021.HongWooju.
+</body>
+
+</html>
